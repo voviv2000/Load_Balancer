@@ -9,7 +9,6 @@
 using namespace std;
 
 LoadBalancer::LoadBalancer(const int num_servers_ , const int num_reqs_ ) : num_servers( num_servers_), num_req( num_reqs_ ) {
-    // constructor leave empty
     generate_reqs(num_req);
 }
 

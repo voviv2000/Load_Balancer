@@ -17,28 +17,12 @@ struct Request {
     int rand_time; //randomize this
 };
 
-// string randomize_ip(){
-//     int num1 = (rand() % 1000);
-//     int num2 = (rand() % 1000);
-//     int num3 = (rand() % 1000);
-//     int num4 = (rand() % 1000);
-
-//     return to_string(num1) + "." + to_string(num2) + "." + to_string(num3)+ "." + to_string(num4);
-// };
-
-// int randomize_time(){
-//     int time1 = rand() % 25;
-//     int time2 = rand() % 10;
-//     int time3 = rand() % 10;
-//     string fulltime = to_string(time1) + to_string(time2) + to_string(time3);
-//     return stoi(fulltime);
-// };
 
 class LoadBalancer {
 
 private:  
 
-    // queue of type request
+    // queue of type request NEEDS TO BE PRIORITY BASED ON TIME
     queue<Request> requestqueue;
 
     int time_count = 0;
