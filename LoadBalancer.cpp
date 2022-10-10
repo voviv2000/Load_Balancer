@@ -1,9 +1,3 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
-#include <queue>
-#include <string>
 #include "LoadBalancer.h"
 
 using namespace std;
@@ -13,23 +7,28 @@ LoadBalancer::LoadBalancer(const int num_servers_ , const int num_reqs_ ) : num_
 }
 
 
-
 // generates num_servers * 2 amount of requests
 void LoadBalancer::generate_reqs( int num_servers_ ){
-    /*
-    */
+   map<int, Request> m;
    for ( int i = 0; i < num_req; i++ ){
        Request new_request;
        new_request.in_IP_address = randomize_ip();
        new_request.out_IP_address = randomize_ip();
        new_request.rand_time = randomize_time();
 
-       requestqueue.push(new_request);
+       //sort queue by smallest server start time first
+       //requestqueue.push(new_request);
+       m[new_request.rand_time] = new_request;
    }
+
+    map<int, Request>::iterator itr;
+    for (itr = m.begin(); itr != m.end(); ++itr) {
+        requestqueue.push(itr->second);
+    }
+
 }
 
 // pop out a request and put into WebServer
-
 Request LoadBalancer::front(){
     return requestqueue.front();
 }
@@ -44,15 +43,17 @@ bool LoadBalancer::empty(){
 
 // refills queue with new requests
 void LoadBalancer::refill_queue(int num_reqs_){
-
+    map<int, Request> m;
     for ( int i = 0; i < num_reqs_; i++ ){
         Request new_request;
         new_request.in_IP_address = randomize_ip();
         new_request.out_IP_address = randomize_ip();
         new_request.rand_time = randomize_time();
 
-        requestqueue.push(new_request);
+        //requestqueue.push(new_request);
+        m[new_request.rand_time] = new_request;
     }
+
 }
 
 // creates random IP addresses
@@ -75,6 +76,7 @@ int LoadBalancer::randomize_time(){
     string fulltime = to_string(time1) + to_string(time2) + to_string(time3);
     return stoi(fulltime);
 }
+
 
 
 

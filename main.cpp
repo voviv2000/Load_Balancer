@@ -5,8 +5,8 @@
 #include <queue>
 #include <string>
 #include <vector>
-#include "LoadBalancer.cpp"
-#include "WebServer.cpp"
+#include "LoadBalancer.h"
+#include "WebServer.h"
 
 using namespace std;
 
@@ -26,7 +26,7 @@ int main() {
 
     num_requests = num_servers * 2;
 
-    // generate num_requests, fill in load balancer
+    //generate num_requests, fill in load balancer
     LoadBalancer requestqueue( num_servers, num_requests);
 
     
@@ -50,18 +50,17 @@ int main() {
 
     while(!requestqueue.empty()){
         for ( int i = 0; i < servers.size(); i++ ) {
-            if( servers[i].accept_request() == 1 ){
-                servers[i].process_request( requestqueue.front() );
-                requestqueue.pop_queue();
-            }
+            servers[i].process_request( requestqueue.front() );
+            requestqueue.pop_queue();
         }
     }
 
-    if( requestqueue.empty() == 1 ){
-        cout << "Exiting Program..." << endl;
-        exit(0);
-    }
+    // if( requestqueue.empty() == 1 ){
+    //     cout << "Exiting Program..." << endl;
+    //     exit(0);
+    // }
 
     // DONT FORGET TO RUN BUILD TASK EACH TIME  
+    // return 0;
 
 }

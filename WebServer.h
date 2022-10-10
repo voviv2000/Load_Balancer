@@ -1,12 +1,6 @@
 #ifndef _WEBSERVER_H_
 #define _WEBSERVER_H_
 
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
-#include <queue>
-#include <string>
 #include "LoadBalancer.h"
 
 using namespace std;
@@ -16,7 +10,7 @@ class WebServer {
 private:
     Request req;
     string server_name;
-    bool accept_new_request;
+    bool isFull;
     
 public:
     // takes request form load balancer
@@ -28,7 +22,8 @@ public:
     string get_server_name();
 
     // asks for another
-    bool accept_request();
+    void set_isFull(bool isFull);
+    bool get_isFull();
 
 };
 

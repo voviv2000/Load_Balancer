@@ -3,10 +3,15 @@
 
 #include <iostream>
 #include <stdio.h>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include <stdlib.h>
+#include <time.h>  
 #include <queue>
 #include <string>
+#include <vector>
+#include <utility>
+#include <bits/stdc++.h>
+#include <iterator>
+#include <map>
 
 using namespace std;
 
@@ -36,9 +41,6 @@ public:
     LoadBalancer(const int num_servers_ , const int num_reqs_ );
 
 
-
-    // class functions
-
     // generates num_servers * 2 amount of requests
     void generate_reqs( int num_servers_ );
 
@@ -57,7 +59,6 @@ public:
 
     // creates random time to run load balacner TAKE THIS INTO CONSIDERATION WHEN DISTRIB   
     int randomize_time();
-
 
 };
 
