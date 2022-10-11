@@ -15,21 +15,44 @@ int main() {
 
     vector<WebServer> servers;
     int num_servers;
-    int time_run_load;
+    int tick;
     int num_requests;
 
     cout << "Enter the number of servers desired: ";
     cin >> num_servers;
-    cout << "Enter the time you want to run the load balancer: ";
-    cin >> time_run_load;
-    cout << "Number of servers: " << num_servers << " and number of load balancers: " << time_run_load << endl << endl;
+    cout << "Enter how long you want to run the load balancer for (number of ticks): ";
+    cin >> tick;
+    cout << "Number of servers: " << num_servers << " and number of ticks: " << tick << endl << endl;
 
     num_requests = num_servers * 2;
 
     //generate num_requests, fill in load balancer
-    LoadBalancer requestqueue( num_servers, num_requests);
-
+    LoadBalancer requestqueue( num_requests );
     
+    // create num_servers amount of servers
+    for ( int i = 0; i < num_servers; i++ ){
+        string name = "server " + to_string(i);
+        WebServer new_server(name); // give name to server
+        servers.push_back(new_server);
+    }
+  
+    while( tick > 0 ){
+        for ( int i = 0; i < servers.size(); i++ ) {
+            servers[i].process_request( requestqueue.front() );
+            requestqueue.pop_queue();
+          
+            if( requestqueue.empty() == true ){
+              cout << "\n\n Generating more requests...\n\n"<< endl;
+              num_requests = (rand() % 100 ) + 1;
+              requestqueue.generate_reqs(num_requests);
+            }
+            tick--;
+        }
+    }
+
+    cout << "Exiting Program..." << endl;
+    return 0;
+  
     // int i = 0;
     // while(!requestqueue.empty()){
 
@@ -40,25 +63,21 @@ int main() {
     //     requestqueue.pop_queue();
     //     i+=1;
     // }
-
+///////////////////////////////////////////////////////
     // create num_servers amount of servers
-    for ( int i = 0; i < num_servers; i++ ){
-        string name = "server " + to_string(i);
-        WebServer new_server(name); // give name to server
-        servers.push_back(new_server);
-    }
-
-    while(!requestqueue.empty()){
-        for ( int i = 0; i < servers.size(); i++ ) {
-            servers[i].process_request( requestqueue.front() );
-            requestqueue.pop_queue();
-        }
-    }
-
-    // if( requestqueue.empty() == 1 ){
-    //     cout << "Exiting Program..." << endl;
-    //     exit(0);
+    // for ( int i = 0; i < num_servers; i++ ){
+    //     string name = "server " + to_string(i);
+    //     WebServer new_server(name); // give name to server
+    //     servers.push_back(new_server);
     // }
+
+    // while(!requestqueue.empty()){
+    //     for ( int i = 0; i < servers.size(); i++ ) {
+    //         servers[i].process_request( requestqueue.front() );
+    //         requestqueue.pop_queue();
+    //     }
+    // }
+////////////////////////////////////////////////////////////
 
     // DONT FORGET TO RUN BUILD TASK EACH TIME  
     // return 0;

@@ -31,14 +31,12 @@ private:
     queue<Request> requestqueue;
 
     int time_count = 0;
-
-    int num_servers;
-    int num_req = num_servers * 2;
+    int num_req;
 
 public:
     
     // constructor
-    LoadBalancer(const int num_servers_ , const int num_reqs_ );
+    LoadBalancer( const int num_reqs_ );
 
 
     // generates num_servers * 2 amount of requests
@@ -50,9 +48,6 @@ public:
     void pop_queue();
 
     bool empty();
-
-    // refills queue with new requests
-    void refill_queue(int num_reqs_);
 
     // creates random IP addresses
     string randomize_ip();

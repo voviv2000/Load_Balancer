@@ -2,13 +2,13 @@
 
 using namespace std;
 
-LoadBalancer::LoadBalancer(const int num_servers_ , const int num_reqs_ ) : num_servers( num_servers_), num_req( num_reqs_ ) {
+LoadBalancer::LoadBalancer(const int num_reqs_ ) : num_req( num_reqs_ ) {
     generate_reqs(num_req);
 }
 
 
 // generates num_servers * 2 amount of requests
-void LoadBalancer::generate_reqs( int num_servers_ ){
+void LoadBalancer::generate_reqs( int num_reqs_ ){
    map<int, Request> m;
    for ( int i = 0; i < num_req; i++ ){
        Request new_request;
@@ -41,20 +41,6 @@ bool LoadBalancer::empty(){
     return requestqueue.empty();
 }
 
-// refills queue with new requests
-void LoadBalancer::refill_queue(int num_reqs_){
-    map<int, Request> m;
-    for ( int i = 0; i < num_reqs_; i++ ){
-        Request new_request;
-        new_request.in_IP_address = randomize_ip();
-        new_request.out_IP_address = randomize_ip();
-        new_request.rand_time = randomize_time();
-
-        //requestqueue.push(new_request);
-        m[new_request.rand_time] = new_request;
-    }
-
-}
 
 // creates random IP addresses
 string LoadBalancer::randomize_ip(){
