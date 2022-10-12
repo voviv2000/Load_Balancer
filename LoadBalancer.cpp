@@ -9,8 +9,11 @@ LoadBalancer::LoadBalancer(const int num_reqs_ ) : num_req( num_reqs_ ) {
 
 // generates num_servers * 2 amount of requests
 void LoadBalancer::generate_reqs( int num_reqs_ ){
+  
    map<int, Request> m;
-   for ( int i = 0; i < num_req; i++ ){
+   //srand(time(0));
+  
+   for ( int i = 0; i < num_reqs_; i++ ){
        Request new_request;
        new_request.in_IP_address = randomize_ip();
        new_request.out_IP_address = randomize_ip();
@@ -44,7 +47,7 @@ bool LoadBalancer::empty(){
 
 // creates random IP addresses
 string LoadBalancer::randomize_ip(){
-
+    //srand(time(0));
     int num1 = (rand() % 1000);
     int num2 = (rand() % 1000);
     int num3 = (rand() % 1000);
@@ -55,7 +58,7 @@ string LoadBalancer::randomize_ip(){
 
 // creates random time to run load balacner TAKE THIS INTO CONSIDERATION WHEN DISTRIB   
 int LoadBalancer::randomize_time(){
-
+    //srand(time(0));
     int time1 = rand() % 25;
     int time2 = rand() % 10;
     int time3 = rand() % 10;

@@ -1,10 +1,11 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+//#include <time.h>       /* time */
 #include <queue>
 #include <string>
 #include <vector>
+#include <ctime> 
 #include "LoadBalancer.h"
 #include "WebServer.h"
 
@@ -17,6 +18,7 @@ int main() {
     int num_servers;
     int tick;
     int num_requests;
+    srand(time(0));
 
     cout << "Enter the number of servers desired: ";
     cin >> num_servers;
@@ -35,22 +37,32 @@ int main() {
         WebServer new_server(name); // give name to server
         servers.push_back(new_server);
     }
-  
+
     while( tick > 0 ){
         for ( int i = 0; i < servers.size(); i++ ) {
             servers[i].process_request( requestqueue.front() );
             requestqueue.pop_queue();
           
             if( requestqueue.empty() == true ){
-              cout << "\n\n Generating more requests...\n\n"<< endl;
-              num_requests = (rand() % 100 ) + 1;
+              
+              fstream myfile;
+              myfile.open("request_log.txt", fstream::app );
+              
+              if(!myfile){
+                myfile << "\n\nGenerating more requests...\n\n"<< endl;
+              } else {
+                myfile << "\n\nGenerating more requests...\n\n"<< endl;
+              }
+              myfile.close();
+              
+              num_requests = (rand() % 10 ) + 1;
               requestqueue.generate_reqs(num_requests);
             }
             tick--;
         }
     }
 
-    cout << "Exiting Program..." << endl;
+    cout << "Done logging requests!\n\nExiting Program..." << endl;
     return 0;
   
     // int i = 0;
