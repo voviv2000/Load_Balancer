@@ -15,6 +15,12 @@
 
 using namespace std;
 
+/**
+ * @brief Struct object called Request
+ * Two string attributes serve as an in and out IP address
+ * One int attribute acts as a randomized runtime for the request
+ */
+
 struct Request {
     // generate random IP address
     string in_IP_address;
@@ -22,6 +28,12 @@ struct Request {
     int rand_time; //randomize this
 };
 
+/**
+ * @brief LoadBalancer class, keeps a queue of requests
+ * Has other queue functionalities to access and modify
+ * Keeps track of time for each request
+ * 
+ */
 
 class LoadBalancer {
 

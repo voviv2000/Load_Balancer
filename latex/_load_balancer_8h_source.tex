@@ -1,0 +1,67 @@
+\hypertarget{_load_balancer_8h_source}{}\doxysection{Load\+Balancer.\+h}
+\mbox{\hyperlink{_load_balancer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_LOADBALANCER\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_LOADBALANCER\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <time.h>}  }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{24 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_request}{Request}} \{}
+\DoxyCodeLine{25     \textcolor{comment}{// generate random IP address}}
+\DoxyCodeLine{26     \textcolor{keywordtype}{string} \mbox{\hyperlink{struct_request_ac84307f41aaf47542338248d860d0f55}{in\_IP\_address}};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{string} \mbox{\hyperlink{struct_request_a594e6d7653e746cd46aa5b7739c1827b}{out\_IP\_address}};}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_request_a74229c60b16fd0d0a6d452af6ac8f297}{rand\_time}}; \textcolor{comment}{//randomize this}}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{class_load_balancer}{LoadBalancer}} \{}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{private}:  }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// queue of type request NEEDS TO BE PRIORITY BASED ON TIME}}
+\DoxyCodeLine{43     queue<Request> requestqueue;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} time\_count = 0;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} num\_req;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} request\_time;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{public}:}
+\DoxyCodeLine{50     }
+\DoxyCodeLine{51     \textcolor{comment}{// constructor}}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_load_balancer}{LoadBalancer}}( \textcolor{keyword}{const} \textcolor{keywordtype}{int} num\_reqs\_, \textcolor{keyword}{const} \textcolor{keywordtype}{int} request\_time\_ );}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// generates num\_servers * 2 amount of requests}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_balancer_aa37b06993ec78d298f9b5fb2042d2010}{generate\_reqs}}( \textcolor{keywordtype}{int} num\_reqs\_ , \textcolor{keywordtype}{int} request\_time\_ );}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \mbox{\hyperlink{struct_request}{Request}} \mbox{\hyperlink{class_load_balancer_a24910828c212aa22bf654eaabe529557}{front}}();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{comment}{// pop out a request and put into WebServer}}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_balancer_ae15576eb11b848fb929394f88df61e87}{pop\_queue}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_load_balancer_a5858a3809f955f592d30575ec374d804}{empty}}();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_load_balancer_ab98f83630bbe137090cacdbb103cdfe5}{queue\_size}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{comment}{// creates random IP addresses}}
+\DoxyCodeLine{68     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_load_balancer_a570a96cb603bbc75608f773b37e03e9f}{randomize\_ip}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{comment}{// creates random time to run load balacner TAKE THIS INTO CONSIDERATION WHEN DISTRIB   }}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_load_balancer_a5a1dbddff9f8893e481518d3baab819e}{randomize\_time}}( \textcolor{keywordtype}{int} request\_time\_ );}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}

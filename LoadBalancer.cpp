@@ -2,10 +2,32 @@
 
 using namespace std;
 
+/**
+ * @brief Construct a new Load Balancer:: Load Balancer object
+ * 
+ * @param num_reqs_ 
+ * 
+ * takes in number of requests to generate and load into requestqueue
+ * @param request_time_ 
+ * the max upper bound for a request runtime
+ * 
+ */
+
 LoadBalancer::LoadBalancer(const int num_reqs_ , const int request_time_ ) : num_req( num_reqs_ ) , request_time(request_time_) {
     generate_reqs(num_req, request_time );
 }
 
+
+/**
+ * @brief Generates user input of requests and loads requests into requestqueue
+ * 
+ * @param num_reqs_ 
+ * takes in user input of requests to generate
+ * 
+ * @param request_time_ 
+ * takes in user input of max upper bound for a request runtime
+ * 
+ */
 
 // generates num_servers * 2 amount of requests
 void LoadBalancer::generate_reqs( int num_reqs_, int request_time_ ){
@@ -30,23 +52,54 @@ void LoadBalancer::generate_reqs( int num_reqs_, int request_time_ ){
 
 }
 
+
+/**
+ * @brief Grabs the first element in the requestqueue
+ * 
+ * @return Returns a Request object 
+ */
+
 // pop out a request and put into WebServer
 Request LoadBalancer::front(){
     return requestqueue.front();
 }
 
+/**
+ * @brief Pops or removes a request from the queue
+ * 
+ */
+
 void LoadBalancer::pop_queue(){
     return requestqueue.pop();
 }
+
+/**
+ * @brief Checks if requestqueue is empty or not
+ * 
+ * @return true is empty
+ * @return false is not empty
+ */
 
 bool LoadBalancer::empty(){
     return requestqueue.empty();
 }
 
+/**
+ * @brief Size of the queue
+ * 
+ * @return integer size of queue
+ */
+
 int LoadBalancer::queue_size(){
   return requestqueue.size();
 }
 
+
+/**
+ * @brief Generates a random IP address
+ * 
+ * @return string of an IP address
+ */
 
 // creates random IP addresses
 string LoadBalancer::randomize_ip(){
@@ -58,6 +111,13 @@ string LoadBalancer::randomize_ip(){
 
     return to_string(num1) + "." + to_string(num2) + "." + to_string(num3)+ "." + to_string(num4);
 }
+
+/**
+ * @brief Generates a random time from 2 to x input 
+ * 
+ * @param request_time_ 
+ * @return int
+ */
 
 // creates random time to process request TAKE THIS INTO CONSIDERATION WHEN DISTRIB   
 int LoadBalancer::randomize_time( int request_time_ ){

@@ -3,11 +3,35 @@
 
 using namespace std;   
 
+/**
+ * @brief Construct a new Web Server:: Web Server object
+ * 
+ * @param num_servers_ 
+ * takes in integer for number of servers to generate
+ */
+
 WebServer::WebServer(const int num_servers_) : num_servers(num_servers_) {
   // constructor
   gen_server_status(num_servers);
 }
 
+
+/**
+ * @brief Processes a request
+ * 
+ * @param server_num 
+ * takes in a server number (the server that will hold a request)
+ * 
+ * @param req_ 
+ * takes in one Request that will be processed
+ * 
+ * @param start_time 
+ * the starting time of the current clock cycle
+ * 
+ * @return string 
+ * returns when the Request is done processing
+ * 
+ */
 // process requests
 string WebServer::process_request(int server_num, Request req_, int start_time)  {
 
@@ -44,13 +68,12 @@ string WebServer::process_request(int server_num, Request req_, int start_time) 
 }
 
 
-void WebServer::set_isFull(bool isFull_){
-  isFull = isFull_;
-}
-
-bool WebServer::get_isFull(){
-  return isFull;
-}
+/**
+ * @brief Generates x input of servers and defaults status to false or empty
+ * 
+ * @param num_servers_ 
+ * Number of servers to generate
+ */
 
 void WebServer::gen_server_status(int num_servers_){
   for( int i = 0; i < num_servers_; i++ ){
@@ -63,17 +86,47 @@ void WebServer::gen_server_status(int num_servers_){
   }
 }
 
+
+/**
+ * @brief Gets status of a server
+ * 
+ * @param server 
+ * The server we want the status of 
+ * 
+ * @return true 
+ * @return false 
+ */
+
 bool WebServer::get_status(int server){
   return s[server].stat;
 }
+
+
+/**
+ * @brief Sets the status of a server
+ * 
+ * @param server 
+ * The server we want to change status of
+ * 
+ * @param flag 
+ * What status we want to change to
+ */
 
 void WebServer::set_status(int server, bool flag){
   s[server].stat = flag;
 }
 
-int WebServer::get_start_time(int server){
-  return s[server].start_time;
-}
+
+/**
+ * @brief Gets the total time a request will take from x server
+ * 
+ * @param server 
+ * The server we want to see the request from
+ * 
+ * @return int 
+ * The runtime of the request
+ * 
+ */
 
 int WebServer::get_process_length(int server){
   return s[server].process_length;

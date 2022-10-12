@@ -1,0 +1,166 @@
+\hypertarget{class_load_balancer}{}\doxysection{Load\+Balancer Class Reference}
+\label{class_load_balancer}\index{LoadBalancer@{LoadBalancer}}
+
+
+\mbox{\hyperlink{class_load_balancer}{Load\+Balancer}} class, keeps a queue of requests Has other queue functionalities to access and modify Keeps track of time for each request.  
+
+
+
+
+{\ttfamily \#include $<$Load\+Balancer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_load_balancer_a07a6b36805fd2b11fa356c5f951b2bf0}{Load\+Balancer}} (const int num\+\_\+reqs\+\_\+, const int request\+\_\+time\+\_\+)
+\begin{DoxyCompactList}\small\item\em Construct a new Load Balancer\+:\+: Load Balancer object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_aa37b06993ec78d298f9b5fb2042d2010}{generate\+\_\+reqs}} (int num\+\_\+reqs\+\_\+, int request\+\_\+time\+\_\+)
+\begin{DoxyCompactList}\small\item\em Generates user input of requests and loads requests into requestqueue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_request}{Request}} \mbox{\hyperlink{class_load_balancer_a24910828c212aa22bf654eaabe529557}{front}} ()
+\begin{DoxyCompactList}\small\item\em Grabs the first element in the requestqueue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_ae15576eb11b848fb929394f88df61e87}{pop\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Pops or removes a request from the queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_load_balancer_a5858a3809f955f592d30575ec374d804}{empty}} ()
+\begin{DoxyCompactList}\small\item\em Checks if requestqueue is empty or not. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_load_balancer_ab98f83630bbe137090cacdbb103cdfe5}{queue\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Size of the queue. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_load_balancer_a570a96cb603bbc75608f773b37e03e9f}{randomize\+\_\+ip}} ()
+\begin{DoxyCompactList}\small\item\em Generates a random IP address. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_load_balancer_a5a1dbddff9f8893e481518d3baab819e}{randomize\+\_\+time}} (int request\+\_\+time\+\_\+)
+\begin{DoxyCompactList}\small\item\em Generates a random time from 2 to x input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_load_balancer}{Load\+Balancer}} class, keeps a queue of requests Has other queue functionalities to access and modify Keeps track of time for each request. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_load_balancer_a07a6b36805fd2b11fa356c5f951b2bf0}\label{class_load_balancer_a07a6b36805fd2b11fa356c5f951b2bf0}} 
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}}
+{\footnotesize\ttfamily Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{const int}]{num\+\_\+reqs\+\_\+,  }\item[{const int}]{request\+\_\+time\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Load Balancer\+:\+: Load Balancer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+reqs\+\_\+} & \\
+\hline
+\end{DoxyParams}
+takes in number of requests to generate and load into requestqueue 
+\begin{DoxyParams}{Parameters}
+{\em request\+\_\+time\+\_\+} & the max upper bound for a request runtime \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_load_balancer_a5858a3809f955f592d30575ec374d804}\label{class_load_balancer_a5858a3809f955f592d30575ec374d804}} 
+\index{LoadBalancer@{LoadBalancer}!empty@{empty}}
+\index{empty@{empty}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool Load\+Balancer\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if requestqueue is empty or not. 
+
+\begin{DoxyReturn}{Returns}
+true is empty 
+
+false is not empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_load_balancer_a24910828c212aa22bf654eaabe529557}\label{class_load_balancer_a24910828c212aa22bf654eaabe529557}} 
+\index{LoadBalancer@{LoadBalancer}!front@{front}}
+\index{front@{front}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_request}{Request}} Load\+Balancer\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Grabs the first element in the requestqueue. 
+
+\begin{DoxyReturn}{Returns}
+Returns a \mbox{\hyperlink{struct_request}{Request}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_load_balancer_aa37b06993ec78d298f9b5fb2042d2010}\label{class_load_balancer_aa37b06993ec78d298f9b5fb2042d2010}} 
+\index{LoadBalancer@{LoadBalancer}!generate\_reqs@{generate\_reqs}}
+\index{generate\_reqs@{generate\_reqs}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{generate\_reqs()}{generate\_reqs()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::generate\+\_\+reqs (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+reqs\+\_\+,  }\item[{int}]{request\+\_\+time\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Generates user input of requests and loads requests into requestqueue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+reqs\+\_\+} & takes in user input of requests to generate\\
+\hline
+{\em request\+\_\+time\+\_\+} & takes in user input of max upper bound for a request runtime \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_load_balancer_ae15576eb11b848fb929394f88df61e87}\label{class_load_balancer_ae15576eb11b848fb929394f88df61e87}} 
+\index{LoadBalancer@{LoadBalancer}!pop\_queue@{pop\_queue}}
+\index{pop\_queue@{pop\_queue}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{pop\_queue()}{pop\_queue()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::pop\+\_\+queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pops or removes a request from the queue. 
+
+\mbox{\Hypertarget{class_load_balancer_ab98f83630bbe137090cacdbb103cdfe5}\label{class_load_balancer_ab98f83630bbe137090cacdbb103cdfe5}} 
+\index{LoadBalancer@{LoadBalancer}!queue\_size@{queue\_size}}
+\index{queue\_size@{queue\_size}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{queue\_size()}{queue\_size()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::queue\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Size of the queue. 
+
+\begin{DoxyReturn}{Returns}
+integer size of queue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_load_balancer_a570a96cb603bbc75608f773b37e03e9f}\label{class_load_balancer_a570a96cb603bbc75608f773b37e03e9f}} 
+\index{LoadBalancer@{LoadBalancer}!randomize\_ip@{randomize\_ip}}
+\index{randomize\_ip@{randomize\_ip}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{randomize\_ip()}{randomize\_ip()}}
+{\footnotesize\ttfamily string Load\+Balancer\+::randomize\+\_\+ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates a random IP address. 
+
+\begin{DoxyReturn}{Returns}
+string of an IP address 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_load_balancer_a5a1dbddff9f8893e481518d3baab819e}\label{class_load_balancer_a5a1dbddff9f8893e481518d3baab819e}} 
+\index{LoadBalancer@{LoadBalancer}!randomize\_time@{randomize\_time}}
+\index{randomize\_time@{randomize\_time}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{randomize\_time()}{randomize\_time()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::randomize\+\_\+time (\begin{DoxyParamCaption}\item[{int}]{request\+\_\+time\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Generates a random time from 2 to x input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+\_\+time\+\_\+} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_load_balancer_8h}{Load\+Balancer.\+h}}\item 
+\mbox{\hyperlink{_load_balancer_8cpp}{Load\+Balancer.\+cpp}}\end{DoxyCompactItemize}

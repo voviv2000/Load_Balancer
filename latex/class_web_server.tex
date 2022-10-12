@@ -1,0 +1,140 @@
+\hypertarget{class_web_server}{}\doxysection{Web\+Server Class Reference}
+\label{class_web_server}\index{WebServer@{WebServer}}
+
+
+{\ttfamily \#include $<$Web\+Server.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_web_server_a3261771e957e863ebf68e4e69873fa29}{Web\+Server}} (const int num\+\_\+servers\+\_\+)
+\begin{DoxyCompactList}\small\item\em Construct a new Web Server\+:\+: Web Server object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_web_server_adac79db15fd67642b0ac9fd9c9a5df06}{process\+\_\+request}} (int server\+\_\+num, \mbox{\hyperlink{struct_request}{Request}} req\+\_\+, int start\+\_\+time\+\_\+)
+\begin{DoxyCompactList}\small\item\em Processes a request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a2ea610b2d35901e809bf0f8b9305ee90}{gen\+\_\+server\+\_\+status}} (int num\+\_\+servers\+\_\+)
+\begin{DoxyCompactList}\small\item\em Generates x input of servers and defaults status to false or empty. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_web_server_a1bbc57b46d7974424b524d2bc8487f84}{get\+\_\+status}} (int server)
+\begin{DoxyCompactList}\small\item\em Gets status of a server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a6b46ee7b18e7dd3ea7640fbd777d2efa}{set\+\_\+status}} (int server, bool flag)
+\begin{DoxyCompactList}\small\item\em Sets the status of a server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_web_server_a92ef41a9c4c1e1a159e2dca7213427d6}{get\+\_\+process\+\_\+length}} (int server)
+\begin{DoxyCompactList}\small\item\em Gets the total time a request will take from x server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_web_server_a3261771e957e863ebf68e4e69873fa29}\label{class_web_server_a3261771e957e863ebf68e4e69873fa29}} 
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}\item[{const int}]{num\+\_\+servers\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Web Server\+:\+: Web Server object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+servers\+\_\+} & takes in integer for number of servers to generate \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_web_server_a2ea610b2d35901e809bf0f8b9305ee90}\label{class_web_server_a2ea610b2d35901e809bf0f8b9305ee90}} 
+\index{WebServer@{WebServer}!gen\_server\_status@{gen\_server\_status}}
+\index{gen\_server\_status@{gen\_server\_status}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{gen\_server\_status()}{gen\_server\_status()}}
+{\footnotesize\ttfamily void Web\+Server\+::gen\+\_\+server\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+servers\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Generates x input of servers and defaults status to false or empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+servers\+\_\+} & Number of servers to generate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_server_a92ef41a9c4c1e1a159e2dca7213427d6}\label{class_web_server_a92ef41a9c4c1e1a159e2dca7213427d6}} 
+\index{WebServer@{WebServer}!get\_process\_length@{get\_process\_length}}
+\index{get\_process\_length@{get\_process\_length}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{get\_process\_length()}{get\_process\_length()}}
+{\footnotesize\ttfamily int Web\+Server\+::get\+\_\+process\+\_\+length (\begin{DoxyParamCaption}\item[{int}]{server }\end{DoxyParamCaption})}
+
+
+
+Gets the total time a request will take from x server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & The server we want to see the request from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The runtime of the request 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_server_a1bbc57b46d7974424b524d2bc8487f84}\label{class_web_server_a1bbc57b46d7974424b524d2bc8487f84}} 
+\index{WebServer@{WebServer}!get\_status@{get\_status}}
+\index{get\_status@{get\_status}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{get\_status()}{get\_status()}}
+{\footnotesize\ttfamily bool Web\+Server\+::get\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{server }\end{DoxyParamCaption})}
+
+
+
+Gets status of a server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & The server we want the status of\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_server_adac79db15fd67642b0ac9fd9c9a5df06}\label{class_web_server_adac79db15fd67642b0ac9fd9c9a5df06}} 
+\index{WebServer@{WebServer}!process\_request@{process\_request}}
+\index{process\_request@{process\_request}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{process\_request()}{process\_request()}}
+{\footnotesize\ttfamily string Web\+Server\+::process\+\_\+request (\begin{DoxyParamCaption}\item[{int}]{server\+\_\+num,  }\item[{\mbox{\hyperlink{struct_request}{Request}}}]{req\+\_\+,  }\item[{int}]{start\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Processes a request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+num} & takes in a server number (the server that will hold a request)\\
+\hline
+{\em req\+\_\+} & takes in one \mbox{\hyperlink{struct_request}{Request}} that will be processed\\
+\hline
+{\em start\+\_\+time} & the starting time of the current clock cycle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string returns when the \mbox{\hyperlink{struct_request}{Request}} is done processing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_server_a6b46ee7b18e7dd3ea7640fbd777d2efa}\label{class_web_server_a6b46ee7b18e7dd3ea7640fbd777d2efa}} 
+\index{WebServer@{WebServer}!set\_status@{set\_status}}
+\index{set\_status@{set\_status}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{set\_status()}{set\_status()}}
+{\footnotesize\ttfamily void Web\+Server\+::set\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{server,  }\item[{bool}]{flag }\end{DoxyParamCaption})}
+
+
+
+Sets the status of a server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & The server we want to change status of\\
+\hline
+{\em flag} & What status we want to change to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_web_server_8h}{Web\+Server.\+h}}\item 
+\mbox{\hyperlink{_web_server_8cpp}{Web\+Server.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,45 @@
+\hypertarget{_web_server_8h_source}{}\doxysection{Web\+Server.\+h}
+\mbox{\hyperlink{_web_server_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_WEBSERVER\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_WEBSERVER\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_load_balancer_8h}{LoadBalancer.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_web_server}{WebServer}} \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{19 \textcolor{keyword}{struct }Server\{}
+\DoxyCodeLine{20   \textcolor{keywordtype}{int} server\_num;}
+\DoxyCodeLine{21   \textcolor{keywordtype}{int} start\_time;}
+\DoxyCodeLine{22   \textcolor{keywordtype}{int} process\_length;}
+\DoxyCodeLine{23   \textcolor{keywordtype}{bool} stat;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{struct_request}{Request}} req;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} num\_servers;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} server\_num;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} isFull;}
+\DoxyCodeLine{31     vector<Server> s;}
+\DoxyCodeLine{32     }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{comment}{// takes request form load balancer}}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_web_server}{WebServer}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} num\_servers\_);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// process requests}}
+\DoxyCodeLine{38     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_web_server_adac79db15fd67642b0ac9fd9c9a5df06}{process\_request}}(\textcolor{keywordtype}{int} server\_num, \mbox{\hyperlink{struct_request}{Request}} req\_, \textcolor{keywordtype}{int} start\_time\_);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_web_server_a2ea610b2d35901e809bf0f8b9305ee90}{gen\_server\_status}}(\textcolor{keywordtype}{int} num\_servers\_);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_web_server_a1bbc57b46d7974424b524d2bc8487f84}{get\_status}}(\textcolor{keywordtype}{int} server);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_web_server_a6b46ee7b18e7dd3ea7640fbd777d2efa}{set\_status}}(\textcolor{keywordtype}{int} server, \textcolor{keywordtype}{bool} flag);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_web_server_a92ef41a9c4c1e1a159e2dca7213427d6}{get\_process\_length}}(\textcolor{keywordtype}{int} server);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}

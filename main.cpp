@@ -13,11 +13,23 @@ using namespace std;
 
 
 int main() {
-
+    /**
+     * @brief User Inputs:
+     * 
+     * num_servers: Number of servers 
+     * 
+     * num_requests: Number of initial requests
+     * 
+     * request_time: Max, upper bound of a request runtime
+     * 
+     * tick: Number of clock cycles
+     * 
+     */
     int num_servers;
     int tick;
     int num_requests;
     int request_time;
+    int start_queue_size;
     srand(time(0));
 
     cout << "Enter the number of servers desired: ";
@@ -28,7 +40,8 @@ int main() {
     cin >> request_time;
     cout << "Enter how long you want to run the load balancer for (number of ticks): ";
     cin >> tick;
-    //cout << "\nNumber of servers: " << num_servers << " and number of ticks: " << tick << endl << endl;
+
+    start_queue_size = num_requests;
 
     //num_requests = num_servers * 2;
 
@@ -87,14 +100,18 @@ int main() {
 
     fstream myfile;
     myfile.open("request_log.txt", fstream::app );
-    myfile << "\nClock cycle done! Returning size of requestqueue..." << endl;
-    myfile << requestqueue.queue_size() << endl;
+  
+    myfile << "Starting queue size: " << start_queue_size << endl;
+    myfile << "Ending queue size: " << requestqueue.queue_size() << endl;
+    myfile << "Range for tasks time are from 0 to " << request_time << endl;
+    
+    myfile << "\nClock cycle done!\nExiting Program..." << endl;
     myfile.close();
   
-    cout << "Clock cycle done! Returning size of requestqueue..." << endl;
+    cout << "\nClock cycle done!" << endl;
     
     cout << "\nExiting Program..." << endl;
-    return requestqueue.queue_size();
+    return 0;
 
 
 }
