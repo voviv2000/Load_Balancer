@@ -32,15 +32,16 @@ private:
 
     int time_count = 0;
     int num_req;
+    int request_time;
 
 public:
     
     // constructor
-    LoadBalancer( const int num_reqs_ );
+    LoadBalancer( const int num_reqs_, const int request_time_ );
 
 
     // generates num_servers * 2 amount of requests
-    void generate_reqs( int num_servers_ );
+    void generate_reqs( int num_reqs_ , int request_time_ );
 
     Request front();
 
@@ -49,11 +50,13 @@ public:
 
     bool empty();
 
+    int queue_size();
+
     // creates random IP addresses
     string randomize_ip();
 
     // creates random time to run load balacner TAKE THIS INTO CONSIDERATION WHEN DISTRIB   
-    int randomize_time();
+    int randomize_time( int request_time_ );
 
 };
 

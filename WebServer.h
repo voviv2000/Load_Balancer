@@ -7,23 +7,41 @@ using namespace std;
 
 class WebServer {
 
+struct Server{
+  int server_num;
+  int start_time;
+  int process_length;
+  bool stat;
+};
+
 private:
     Request req;
-    string server_name;
+    int num_servers;
+    int server_num;
     bool isFull;
+    vector<Server> s;
     
 public:
     // takes request form load balancer
-    WebServer(const string server_name_);
+    WebServer(const int num_servers_);
 
     // process requests
-    string process_request(Request req_);
+    string process_request(int server_num, Request req_, int start_time_);
 
-    string get_server_name();
+    // int get_server_num();
 
     // asks for another
     void set_isFull(bool isFull);
     bool get_isFull();
+
+    void gen_server_status(int num_servers_);
+
+    bool get_status(int server);
+    void set_status(int server, bool flag);
+
+    int get_start_time(int server);
+
+    int get_process_length(int server);
 
 };
 
